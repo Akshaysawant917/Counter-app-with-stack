@@ -45,8 +45,8 @@ function App() {
   return (
   
     <div>
-      <Container maxWidth="xl" style={{ display:"flex",flexDirection:"column" ,height:"100vh", alignItems:"center",padding:"0px",backgroundColor:"black"}}>
-        <Box style={{position:"absolute",top:"40vh",zIndex:"5",display:"flex",flexDirection:"column" ,justifyContent:"center", alignItems:"center",padding:"0px",color:"yellow"}}>
+      <Container maxWidth="xl" style={{ display:"flex",flexDirection:"column",width:"100%" ,height:"100vh", alignItems:"center",padding:"0px",backgroundColor:"black"}}>
+        <Box style={{position:"absolute",top:"30vh",zIndex:"5",display:"flex",flexDirection:"column" ,justifyContent:"center", alignItems:"center",padding:"0px",color:"yellow"}}>
         <Box><h1>Count is {count}</h1></Box>
        <Box style={{display:"flex"}}> 
         <Button variant="contained" color="primary" size="small" style={{ margin: "2px" }}  endIcon={<RemoveIcon />} onClick={()=>{
@@ -62,7 +62,6 @@ function App() {
         <Button variant="contained" color="primary"size="small" style={{ margin: "2px" }} endIcon={<AddIcon />} onClick={()=>{
           IncreaseCount()
         }}>
-        
           Increase
         </Button> 
         </Box>
@@ -72,7 +71,7 @@ function App() {
         {transitions((style, item) =>
           item && (
             <animated.div style={{ ...style}}>
-              <Box style={{ backgroundColor: "white", width: "95vw", height: "30px", margin: "8px", borderRadius: 8 }}></Box>
+              <Box style={{ backgroundColor: "white", width: "85vw", height: "30px", margin: "5px", borderRadius: 8 }}></Box>
             </animated.div>
           )
         )}
@@ -84,3 +83,4 @@ function App() {
 }
 
 export default App;
+
