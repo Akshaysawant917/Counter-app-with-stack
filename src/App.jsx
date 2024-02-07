@@ -1,3 +1,4 @@
+
 // src/App.jsx
 import React, { useState} from "react";
 import { useTransition, animated } from "react-spring";
@@ -6,6 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ClearIcon from "@mui/icons-material/Clear";
 import { Button,Box, Container, Stack} from "@mui/material";
+import zIndex from "@mui/material/styles/zIndex";
 function App() {
   const [count, setCount] = useState(0);
   const [boxes, setBoxes] = useState([]);
@@ -14,7 +16,7 @@ function App() {
   const DecreaseCount=()=>{
     if(count>0){  setCount(count-1)
       const updatedBoxes = [...boxes];  
-      console.log(updatedBoxes);
+      // console.log(updatedBoxes);
         updatedBoxes.pop();
         setBoxes(updatedBoxes);}
   
@@ -26,9 +28,7 @@ function App() {
       ...prevBoxes,
       { id: prevBoxes.length }
     ]);
-    if(count==11){
-      prompt("Stack is full")
-    }
+ 
   }
 
 
@@ -45,30 +45,34 @@ function App() {
   return (
   
     <div>
-      <Container maxWidth="xl" style={{ display:"flex",flexDirection:"column" , alignItems:"center",backgroundColor:"pink",padding:"0px"}}>
+      <Container maxWidth="xl" style={{ display:"flex",flexDirection:"column" ,height:"100vh", alignItems:"center",padding:"0px",backgroundColor:"black"}}>
+        <Box style={{position:"absolute",top:"40vh",zIndex:"5",display:"flex",flexDirection:"column" ,justifyContent:"center", alignItems:"center",padding:"0px",color:"yellow"}}>
         <Box><h1>Count is {count}</h1></Box>
-       <Box > 
-        <Button variant="contained" color="primary" style={{ margin: "8px" }}  endIcon={<RemoveIcon />} onClick={()=>{
+       <Box style={{display:"flex"}}> 
+        <Button variant="contained" color="primary" size="small" style={{ margin: "2px" }}  endIcon={<RemoveIcon />} onClick={()=>{
           DecreaseCount()
         }}>
           Decrease
         </Button>
-        <Button variant="contained" color="primary" style={{ margin: "8px" }} endIcon={<ClearIcon />}onClick={()=>{
+        <Button variant="contained" color="primary"size="small" style={{ margin: "2px" }} endIcon={<ClearIcon />}onClick={()=>{
           ResetCount()
         }}>
           Reset
         </Button>
-        <Button variant="contained" color="primary" style={{ margin: "8px" }} endIcon={<AddIcon />} onClick={()=>{
+        <Button variant="contained" color="primary"size="small" style={{ margin: "2px" }} endIcon={<AddIcon />} onClick={()=>{
           IncreaseCount()
         }}>
+        
           Increase
         </Button> 
         </Box>
-        <Stack style={{alignItems:"center", flexDirection:"column-reverse",height:"78vh",width:"100%",backgroundColor:"black"}}>
+        </Box>
+        
+        <Stack style={{alignItems:"center", flexDirection:"column-reverse",height:"100%",width:"100%",}}>
         {transitions((style, item) =>
           item && (
             <animated.div style={{ ...style}}>
-              <Box style={{ backgroundColor: "blue", width: "95vw", height: "30px", margin: "8px", borderRadius: 8 }}></Box>
+              <Box style={{ backgroundColor: "white", width: "95vw", height: "30px", margin: "8px", borderRadius: 8 }}></Box>
             </animated.div>
           )
         )}
