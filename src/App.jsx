@@ -73,7 +73,10 @@ function App() {
       <Container maxWidth="xl" style={{ display:"flex",flexWrap:"wrap",width:"100vw" ,height:"auto",padding:"0px",backgroundColor:"black",margin:"0px"}}>
         <Box style={{height:"50vh",width:"50%",zIndex:"5",display:"flex",flexDirection:"column",alignItems:"center",justifyContent: "center",padding:"0px",color:"yellow",border:"1px solid white"}}>
         <Box><h1>Count is {count}</h1></Box>
-       <Box style={{display:"flex"}}> 
+      <Box sx={{display:"flex",'@media (max-width: 600px)': {
+          flexDirection:"column",
+          flexWrap:"wrap"
+        },}}> 
         <Button variant="contained" color="primary" size="small" style={{ margin: "2px" }}  endIcon={<RemoveIcon />} onClick={
           DecreaseCount
         }>
